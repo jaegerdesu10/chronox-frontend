@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="icon" type="image/png "href="pics/logo.png"/>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+            <a href="home.html" class="logo">ChronoX</a>
+                  <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+
+            <div class="nav-links">
+                <a href="home.html" class="nav-link">Shop All</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="#" class="nav-link">Contact</a>
+                <button id="logout-btn" class="nav-link">Logout</button>
+            </div>
+            <button class="cart-btn" aria-label="Open cart">
+                🛍️
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+            </nav>
+        </div>
+</header>
+
+<section class="page-section">
+  <div class="page-container">
+    <div class="page-image">
+      <img src="pics/25.webp" alt="Contact">
+    </div>
+
+    <div class="page-content">
+      <h1>Get in Touch</h1>
+      <p>Questions, feedback, or collaborations — we’d love to hear from you.</p>
+
+        <form class="contact-form" id="contact-form">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+        <p id="form-status"></p>
+
+    </div>
+  </div>
+</section>
+  <footer>
+    <div class="container footer-container">
+      <p class="brand">ChronoX</p>
+      <p>© 2025 ChronoX. All rights reserved.</p>
+    </div>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value
+    };
+
+    try {
+      const response = await fetch('https://chronox-backend.onrender.com/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        status.textContent = "Message sent successfully!";
+        form.reset();
+      } else {
+        status.textContent = "Failed to send message: " + result.error;
+      }
+    } catch (err) {
+      status.textContent = "Error sending message: " + err.message;
+    }
+  });
+});
+</script>
+
+<script>
+      document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.nav-toggle');
+      const links = document.querySelector('.nav-links');
+
+      if (toggle && links) {
+        toggle.addEventListener('click', () => {
+          links.classList.toggle('show');
+        });
+      }
+    });
+  </script>
+<script type="module" src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

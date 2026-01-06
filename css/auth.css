@@ -1,0 +1,146 @@
+/* auth.css - Shared CSS for login and signup pages */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cormorant Garamond', serif;
+  background: #f5f5f5;
+  color: #111;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.auth-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.auth-card h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.auth-card label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.auth-card input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.auth-card button:hover {
+  background: #333;
+  transform: scale(1.03);
+}
+
+.auth-card .bottom-text {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.auth-card .bottom-text a {
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-card .bottom-text a:hover {
+  text-decoration: underline;
+}
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 44px;
+}
+
+
+.toggle-eye {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.toggle-eye:hover {
+  opacity: 1;
+}
+
+.toggle-eye {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-eye img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
+}
+
+.toggle-eye img:hover {
+  opacity: 1;
+}
+
+/* Remove browser default password reveal icons */
+
+/* Chrome / Edge / Safari */
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-textfield-decoration-container {
+  display: none !important;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Microsoft Edge / IE */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
