@@ -83,39 +83,32 @@ body, html {
 }
 
 .password-wrapper {
-  position: relative;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between input and icon */
 }
 
 .password-wrapper input {
-  width: 100%;
-  box-sizing: border-box;
-  padding-right: 44px;
+  flex: 1;             /* take full width */
+  padding: 12px 16px;  /* enough height for mobile */
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* include padding in width */
 }
 
 .toggle-eye {
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  user-select: none;
-  font-size: 14px;
-  opacity: 0.6;
+  flex-shrink: 0; /* prevents shrinking on small screens */
 }
 
 .toggle-eye:hover {
   opacity: 1;
-}
-
-.toggle-eye {
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
 }
 
 .toggle-eye img {
