@@ -1,0 +1,3 @@
+service id: service_5kb36ah
+public key for email: ed7M_IadcOlqHdBAL
+template id: template_4r0be98

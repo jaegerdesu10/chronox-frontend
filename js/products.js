@@ -2,7 +2,7 @@ const products = [
   {
   id: "1",
   name: "Patek Nautilus Flyback Chronograph",
-  price: 153517347,
+  price: 58351734,
   description: "Rose gold single-subdial chronograph with black gradient dial, offering a clean design with inner hours and outer minutes tracking.",
   details: [
     "Brand: Patek Philippe",
@@ -47,7 +47,7 @@ const products = [
 {
   id: "4",
   name: "Patek Philippe Calatrava",
-  price: 56918230,
+  price: 36918230,
   description: "Iconic dress watch with precious metal case, clean dial, open case-back, and premium leather strap. A timeless classic in luxury watchmaking.",
   details: [
     "Brand: Patek Philippe",
@@ -167,7 +167,7 @@ const products = [
 {
   id: "12",
   name: "Audemars Piguet Royal Oak",
-  price: 218748000,
+  price: 68748000,
   description: "A breathtaking skeleton sport watch fully made in ceramic with rose-gold accented dial and moon-phase at 6 o'clock, showcasing AP's mastery in watchmaking.",
   details: [
     "Brand: Audemars Piguet",
@@ -182,7 +182,7 @@ const products = [
 {
   id: "13",
   name: "Tag Heuer Carrera Heuer 02 Skeleton",
-  price: 86040088,
+  price: 66040088,
   description: "A sturdy racing chronograph with a smoky sapphire dial, red hands for contrast, and a 45mm case that highlights its well-made skeleton chronograph design.",
   details: [
     "Brand: Tag Heuer",
@@ -212,7 +212,7 @@ const products = [
 {
   id: "15",
   name: "Patek Philippe Calatrava Skeleton",
-  price: 163871419,
+  price: 63871419,
   description: "A stunning rose gold skeleton watch with hand-finished 240 SQU movement caged within the indices, featuring an elongated mesh bracelet for a striking luxury presence.",
   details: [
     "Brand: Patek Philippe",
