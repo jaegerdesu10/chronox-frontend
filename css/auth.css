@@ -83,29 +83,14 @@ body, html {
 }
 
 .password-wrapper {
-  display: flex;
-  align-items: center;
+  position: relative;
   width: 100%;
-  border: 1px solid #ccc; /* optional: style the input wrapper */
-  border-radius: 5px;
-  overflow: hidden;       /* keeps eye inside */
 }
 
 .password-wrapper input {
-  flex: 1;                /* take remaining space */
-  padding: 10px;
-  border: none;           /* remove default border inside wrapper */
-  outline: none;
+  width: 100%;
   box-sizing: border-box;
-}
-
-.password-wrapper .toggle-eye {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10px;        /* some spacing from input */
-  cursor: pointer;
-  background: #f0f0f0;    /* optional: visual separation */
+  padding-right: 44px;
 }
 
 .toggle-eye {
