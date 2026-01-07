@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us</title>
+  <title>Contact Us - ChronoX</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
   <link rel="icon" type="image/png" href="pics/logo.png"/>
-  <script src="https://js.paystack.co/v1/inline.js"></script>
-  <!-- EmailJS library must be loaded before using emailjs -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs@4/dist/email.min.js"></script>
+  <!-- EmailJS library -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
   <header class="header">
@@ -17,7 +16,6 @@
       <nav class="nav">
         <a href="home.html" class="logo">ChronoX</a>
         <button class="nav-toggle" aria-label="Toggle menu">☰</button>
-
         <div class="nav-links">
           <a href="home.html" class="nav-link">Shop All</a>
           <a href="faq.html" class="nav-link">FAQ</a>
@@ -26,8 +24,7 @@
           <button id="logout-btn" class="nav-link">Logout</button>
         </div>
         <button class="cart-btn" aria-label="Open cart">
-          🛍️
-          <span class="cart-count" id="cart-count">0</span>
+          🛍️ <span class="cart-count" id="cart-count">0</span>
         </button>
       </nav>
     </div>
@@ -38,7 +35,6 @@
       <div class="page-image">
         <img src="pics/25.webp" alt="Contact">
       </div>
-
       <div class="page-content">
         <h1>Get in Touch</h1>
         <p>Questions, feedback, or collaborations — we’d love to hear from you.</p>
@@ -49,7 +45,7 @@
           <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
           <button type="submit">Send Message</button>
         </form>
-        <p id="form-status"></p>
+        <p id="form-status" style="margin-top:10px;font-weight:600;"></p>
       </div>
     </div>
   </section>
@@ -61,39 +57,41 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Initialize EmailJS
-      emailjs.init("ed7M_IadcOlqHdBAL"); // your EmailJS public key
+      // Initialize EmailJS with public key
+      emailjs.init('ed7M_IadcOlqHdBAL'); // <-- replace with YOUR actual public key
 
       const form = document.getElementById('contact-form');
       const status = document.getElementById('form-status');
 
       form.addEventListener('submit', function(e) {
-        e.preventDefault(); // prevent page refresh
+        e.preventDefault(); // stop the page from refreshing
 
-        const formData = {
-          name: form.name.value,
-          email: form.email.value,
-          message: form.message.value
-        };
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
 
-        emailjs.send("service_5kb36ah", "template_4r0be98", formData)
+        // Use FormData directly
+        emailjs.sendForm('service_5kb36ah', 'template_4r0be98', form)
           .then(function(response) {
             console.log('SUCCESS!', response.status, response.text);
+            status.style.color = "green";
             status.textContent = "Message sent successfully!";
             form.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send Message";
           })
           .catch(function(error) {
             console.error('FAILED...', error);
+            status.style.color = "red";
             status.textContent = "Failed to send message. Check console.";
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send Message";
           });
       });
     });
-  </script>
 
-  <script>
     // Nav toggle
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.querySelector('.nav-toggle');
@@ -105,8 +103,5 @@
       }
     });
   </script>
-
-  <script type="module" src="js/auth.js"></script>
-  <script src="js/cart.js"></script>
 </body>
 </html>
