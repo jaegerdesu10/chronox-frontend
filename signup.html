@@ -21,7 +21,15 @@
         <input type="email" id="email" placeholder="you@example.com" required>
 
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password" required>
+
+              <div class="password-wrapper">
+                <input type="password" id="password" placeholder="Enter your password" required>
+
+                <span class="toggle-eye" id="togglePassword">
+                  <img src="pics/eye.svg" id="eyeOpen" alt="Show password">
+                  <img src="pics/eye-slash.svg" id="eyeClosed" alt="Hide password" style="display:none">
+                </span>
+              </div>
 
         <button type="submit">Sign Up</button>
       </form>
